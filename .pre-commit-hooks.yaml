@@ -63,6 +63,12 @@
     files: '\.go$'
     language: 'script'
     description: "Runs `go test`"
+-   id: go-ginkgo-tests
+    name: 'go-ginkgo-tests'
+    entry: run-go-ginkgo-tests.sh
+    files: '\.go$'
+    language: 'script'
+    description: "Runs `ginkgo`"
 -   id: go-build
     name: 'go-build'
     entry: run-go-build.sh
