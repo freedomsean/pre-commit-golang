@@ -1,10 +1,18 @@
 #!/usr/bin/env bash
-coverageDir="$@"
+dir="shippable/codecoverage"
+
+while getopts "o:" option; do
+  case $option in
+    o ) dir=$OPTARG
+    echo "ip address: $dir"
+    ;;
+  esac
+done
 
 if [ $# -eq 0 ]; then
     echo "No arguments supplied"
-    echo "default directory will be shippable/codecoverage/"
-    exit 1
+    echo "default directory will be $dir"
 fi
 
-exec ([ -f $coverageDir] && mkdir -p $coverageDir) && ginkgo -r -cover -covermode=set -outputdir=$coverageDir/ -coverprofile=coverage.out && gocov convert $coverageDir/coverage.out | gocov-xml  > $coverageDir/coverage.xml
+
+mkdir -p $dir && ginkgo -r -cover -covermode=set -outputdir=$dir/ -coverprofile=coverage.out && gocov convert $dir/coverage.out | gocov-xml  > $dir/coverage.xml
