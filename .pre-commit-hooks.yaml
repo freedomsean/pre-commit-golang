@@ -68,7 +68,7 @@
     entry: run-go-ginkgo-tests.sh
     files: '\.go$'
     language: 'script'
-    description: "Runs `ginkgo`"
+    description: "Runs `ginkgo`, requires https://github.com/onsi/ginkgo & https://github.com/onsi/gomega & https://github.com/axw/gocov"
 -   id: go-build
     name: 'go-build'
     entry: run-go-build.sh
