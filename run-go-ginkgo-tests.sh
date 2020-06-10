@@ -14,5 +14,4 @@ if [ $# -eq 0 ]; then
     echo "default directory will be $dir"
 fi
 
-
-mkdir -p $dir && ginkgo -r -cover -covermode=set -outputdir=$dir/ -coverprofile=coverage.out && gocov convert $dir/coverage.out | gocov-xml  > $dir/coverage.xml
+mkdir -p $dir && ginkgo -r -cover -covermode=set -outputdir=$dir/  && gocov convert $dir/*.coverprofile | gocov-xml  > $dir/coverage.xml 
